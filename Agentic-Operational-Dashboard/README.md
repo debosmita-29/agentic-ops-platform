@@ -46,68 +46,8 @@ This dashboard turns those fragmented signals into:
 - Agent skill files and `AGENTS.md`
 
 ## Architecture
-
-┌─────────────────────────────────────────────┐
-│                USER / UI                    │
-│        (Streamlit Dashboard / API)          │
-└─────────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────┐
-│        FASTAPI APPLICATION LAYER            │
-│     /analyze → Agentic Orchestration        │
-└─────────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────┐
-│         AGENT ORCHESTRATION LAYER           │
-│   (LangGraph / CrewAI Compatible Design)    │
-│                                             │
-│  ┌───────────────────────────────────────┐  │
-│  │ Incident Analyst Agent               │  │
-│  │ Test Stability Agent                │  │
-│  │ Release Readiness Agent             │  │
-│  │ Capacity & Cost Agent               │  │
-│  │ Executive Summary Agent             │  │
-│  └───────────────────────────────────────┘  │
-└─────────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────┐
-│          SCORING & DECISION ENGINE          │
-│  - Health Score                            │
-│  - Test Stability Score                    │
-│  - Release Readiness Score                 │
-└─────────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────┐
-│          DATA / CONNECTOR LAYER             │
-│                                             │
-│  Splunk Logs       Dynatrace Metrics        │
-│  CI/CD Pipelines   Incident Systems         │
-│                                             │
-│   (Mock → Replaceable with real APIs)       │
-└─────────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────┐
-│         GEN AI SYNTHESIS LAYER              │
-│   OpenAI / Claude / Ollama / Local          │
-│                                             │
-│ → Converts agent outputs into               │
-│   executive-level summary                   │
-└─────────────────────────────────────────────┘
-                     │
-                     ▼
-┌─────────────────────────────────────────────┐
-│          OUTPUT / DECISION LAYER            │
-│                                             │
-│  • Executive Summary                        │
-│  • Risk Signals                             │
-│  • Recommendations                          │
-│  • Release Go/No-Go Insight                 │
-└─────────────────────────────────────────────┘
+ 
+![Architecture](docs/architecture.png)
 
 ```text
 Observability / CI / Test Data
